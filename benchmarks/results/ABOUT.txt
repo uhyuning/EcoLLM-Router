@@ -1,0 +1,7 @@
+[ benchmarks/results/ — 측정 결과 파일 ]
+
+  baseline.jsonl  run_baseline.py 실행 결과 (전부 Pro 사용)
+  routed.jsonl    run_routed.py 실행 결과 (라우팅 적용)
+
+각 줄(line)은 프롬프트 1건의 측정 기록 (JSON 형식).
+.gitignore 에 등록되어 있으므로 Git에는 포함되지 않는다.

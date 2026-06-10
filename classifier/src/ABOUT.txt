@@ -1,0 +1,9 @@
+[ classifier/src/ — ML 분류기 핵심 소스 코드 ]
+
+담당: 유현
+
+  features.py   프롬프트에서 수치형 피처를 추출한다
+                (토큰 수, 복잡 키워드 수, 단어 평균 길이 등)
+  rule_based.py 훈련 없이 규칙만으로 동작하는 1차 분류기 (즉시 실행 가능)
+  train.py      피처를 입력으로 GBM 분류기를 학습하고 artifacts/ 에 저장한다
+  evaluate.py   저장된 모델의 라우팅 정확도와 Flash 분기 비율을 측정한다

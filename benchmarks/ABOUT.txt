@@ -1,0 +1,14 @@
+[ benchmarks/ — 정량 성능 측정 ]
+
+라우팅 시스템 도입 전후의 API 비용과 응답 지연 시간을 측정하여
+수치로 검증하는 스크립트와 결과 데이터를 저장한다.
+
+하위 폴더
+  scripts/   측정 실행 스크립트
+  results/   측정 결과 파일 (.jsonl)
+
+실행 순서
+  1. 서버 실행:  uvicorn app.main:app --reload
+  2. 기준선 측정: python benchmarks/scripts/run_baseline.py
+  3. 라우팅 측정: python benchmarks/scripts/run_routed.py
+  4. 비교 출력:   python benchmarks/scripts/compare.py

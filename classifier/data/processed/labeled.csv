@@ -1,0 +1,101 @@
+﻿id,prompt,label,note
+1,What is the capital of France?,0,단순 사실
+2,파리는 어느 나라의 수도야?,0,단순 사실
+3,Who invented the telephone?,0,단순 사실
+4,물의 화학식은 뭐야?,0,단순 사실
+5,Translate 'good morning' into Spanish.,0,번역
+6,'감사합니다'를 영어로 번역해줘.,0,번역
+7,What does HTTP stand for?,0,약어 정의
+8,HTML이 뭐야?,0,단순 정의
+9,Who wrote Romeo and Juliet?,0,단순 사실
+10,셰익스피어의 국적은?,0,단순 사실
+11,2 곱하기 8은 얼마야?,0,단순 계산
+12,What is the boiling point of water?,0,단순 사실
+13,지구에서 달까지 거리가 얼마나 돼?,0,단순 사실
+14,What color is the sky?,0,단순 사실
+15,'사과'를 일본어로 뭐라고 해?,0,번역
+16,Who is the current UN Secretary-General?,0,단순 사실
+17,파이썬(Python)은 어떤 언어야?,0,단순 정의
+18,What is a variable in programming?,0,단순 정의
+19,대한민국의 수도는 어디야?,0,단순 사실
+20,What year was the Eiffel Tower built?,0,단순 사실
+21,인터넷이란 뭐야?,0,단순 정의
+22,What is the largest planet in our solar system?,0,단순 사실
+23,빛의 속도는 얼마야?,0,단순 사실
+24,Summarize what a CPU does in one sentence.,0,단순 요약
+25,머신러닝이 뭔지 한 줄로 요약해줘.,0,단순 요약
+26,What is the plural of 'mouse'?,0,단순 문법
+27,'열역학'을 영어로 뭐라고 해?,0,번역
+28,What is the chemical symbol for gold?,0,단순 사실
+29,파이(π)의 값은 대략 얼마야?,0,단순 사실
+30,Who painted the Mona Lisa?,0,단순 사실
+31,DNA가 뭐의 약자야?,0,약어 정의
+32,What is the speed of sound in air?,0,단순 사실
+33,사람 몸에서 가장 큰 기관이 뭐야?,0,단순 사실
+34,What does 'API' stand for?,0,약어 정의
+35,파이썬에서 리스트와 튜플의 차이가 뭐야?,0,단순 비교
+36,What is 15% of 200?,0,단순 계산
+37,비가 오는 이유가 뭐야?,0,단순 설명
+38,Define the term 'machine learning'.,0,단순 정의
+39,서울의 인구는 몇 명이야?,0,단순 사실
+40,What is the Pythagorean theorem?,0,단순 정의
+41,한국어로 '안녕하세요'는 어떤 상황에서 써?,0,단순 설명
+42,What is a neural network?,0,단순 정의
+43,태양계 행성을 순서대로 나열해줘.,0,단순 나열
+44,What is the difference between RAM and ROM?,0,단순 비교
+45,파이썬에서 print() 함수는 어떻게 써?,0,단순 사용법
+46,Who is the founder of Microsoft?,0,단순 사실
+47,배열(Array)과 연결 리스트(Linked List)의 차이가 뭐야?,0,단순 비교
+48,What does 'open source' mean?,0,단순 정의
+49,인공지능과 머신러닝의 차이를 한 줄로 설명해줘.,0,단순 비교
+50,What is the main function of the operating system?,0,단순 정의
+51,Derive the closed-form solution for the time-optimal control of a double integrator system and prove its optimality using Pontryagin's minimum principle.,1,제어이론 증명
+52,"트랜스포머(Transformer) 아키텍처에서 Self-Attention의 수식을 유도하고, 기존 RNN 대비 장단점을 이론적으로 분석하시오.",1,딥러닝 이론
+53,"Design a distributed caching system that handles 1 million requests per second with sub-10ms latency. Discuss consistency models, eviction policies, and failure recovery.",1,시스템 설계
+54,"Prove that the square root of 2 is irrational using proof by contradiction, then generalize the proof to show that the square root of any non-perfect-square integer is irrational.",1,수학 증명
+55,"머신러닝에서 bias-variance tradeoff를 수식으로 설명하고, 실제 모델 복잡도 선택에 어떻게 적용하는지 교차 검증(cross-validation)과 연결지어 논하시오.",1,ML 이론
+56,"Analyze the computational complexity of the QuickSort algorithm in the best, average, and worst cases. Derive the recurrence relation and solve it using the Master Theorem.",1,알고리즘 복잡도
+57,"강화학습의 Bellman optimality equation을 유도하고, Q-learning이 이를 어떻게 근사하는지 수렴 조건과 함께 설명하시오.",1,강화학습 이론
+58,"Compare transformer-based language models and state-space models (e.g., Mamba) for long-context NLP tasks, analyzing trade-offs in computational complexity, memory usage, and empirical performance.",1,LLM 비교 분석
+59,"데이터베이스에서 MVCC(다중 버전 동시성 제어)의 동작 원리를 설명하고, Serializable Snapshot Isolation과의 차이를 트랜잭션 이상 현상 관점에서 분석하시오.",1,DB 이론
+60,"Design a real-time recommendation system capable of handling 10 million daily active users. Address cold-start problem, feature engineering, model selection, and A/B testing strategy.",1,ML 시스템 설계
+61,"CAP theorem의 각 요소를 정의하고, 분산 시스템 설계 시 이를 어떻게 trade-off 하는지 실제 사례(Cassandra, Zookeeper 등)를 들어 설명하시오.",1,분산 시스템
+62,"Derive the backpropagation algorithm from first principles for a multi-layer perceptron, including the chain rule derivation for weights at each layer.",1,딥러닝 수학
+63,"정보이론의 관점에서 엔트로피(Entropy)와 KL-divergence를 정의하고, 이것이 VAE(Variational Autoencoder)의 ELBO 목적함수와 어떻게 연결되는지 증명하시오.",1,정보이론+생성모델
+64,"Analyze the trade-offs between microservices and monolithic architecture in the context of a rapidly scaling startup. Include considerations for deployment, observability, and team structure.",1,아키텍처 설계
+65,"컨볼루션 신경망(CNN)에서 receptive field가 모델 성능에 미치는 영향을 분석하고, dilated convolution과 depthwise separable convolution이 이를 어떻게 개선하는지 설명하시오.",1,CNN 심화
+66,Implement and analyze a lock-free concurrent queue using compare-and-swap (CAS) operations. Discuss ABA problem and how to mitigate it.,1,동시성 프로그래밍
+67,"NP-완전 문제의 정의를 설명하고, 3-SAT 문제가 NP-완전임을 Cook-Levin 정리를 통해 증명하시오. 그리고 이것이 실용적 알고리즘 설계에 주는 시사점을 논하시오.",1,계산 복잡도 이론
+68,"Design a fault-tolerant streaming data pipeline that processes 100GB of sensor data per hour with exactly-once semantics. Compare Kafka, Flink, and Spark Streaming for this use case.",1,데이터 엔지니어링
+69,"Support Vector Machine의 최적화 문제를 쌍대 문제(dual problem)로 변환하는 과정을 KKT 조건을 사용해 유도하고, 커널 트릭이 필요한 이유를 설명하시오.",1,SVM 이론
+70,"Analyze the security implications of using JWT for session management vs. server-side sessions. Discuss token invalidation, replay attacks, and the trade-offs in a distributed system.",1,보안 설계
+71,"그래프 신경망(GNN)에서 message passing 메커니즘을 수식으로 정의하고, over-smoothing 문제의 원인과 이를 해결하기 위한 접근법들을 비교 분석하시오.",1,GNN 이론
+72,"Derive the optimal solution to the knapsack problem using dynamic programming, analyze its time and space complexity, and discuss approximation schemes for NP-hard variants.",1,알고리즘 최적화
+73,"대규모 언어 모델의 fine-tuning 기법(Full fine-tuning, LoRA, RLHF)을 비교하고, 각 방법의 계산 비용, 성능, 적용 시나리오를 실험적 근거와 함께 분석하시오.",1,LLM 파인튜닝
+74,"Design a consistent hashing scheme for a distributed key-value store. Analyze virtual nodes, replication strategies, and how to handle node failure and recovery.",1,분산 해싱
+75,"확률적 경사하강법(SGD)의 수렴 조건을 분석하고, Adam optimizer가 이를 개선하는 메커니즘을 1차·2차 모멘트 추정 관점에서 수식으로 설명하시오.",1,최적화 이론
+76,Analyze the Byzantine Generals Problem and explain how practical Byzantine fault-tolerant (PBFT) consensus algorithms solve it. Compare with Nakamoto consensus.,1,분산 합의 알고리즘
+77,"형식 언어 이론에서 문맥 자유 문법(CFG)과 푸시다운 오토마타(PDA)의 등가성을 증명하고, 이를 파서 설계에 어떻게 활용하는지 설명하시오.",1,형식 언어
+78,"Compare BERT and GPT architectures in terms of pre-training objectives, attention mechanisms, and downstream task performance. Analyze why bidirectional context matters for certain NLP tasks.",1,NLP 모델 비교
+79,"컨테이너 오케스트레이션 환경에서 네트워크 정책(Network Policy)을 설계하고, zero-trust 보안 모델을 Kubernetes 클러스터에 적용하는 방법을 아키텍처 관점에서 논하시오.",1,클라우드 보안
+80,"Derive and explain the VC dimension of a linear classifier in d dimensions, and use it to establish a generalization bound using the PAC learning framework.",1,학습이론
+81,"RAFT 합의 알고리즘의 리더 선출, 로그 복제, 클러스터 멤버십 변경 메커니즘을 분석하고 Paxos와의 차이점 및 실용적 구현 고려사항을 논하시오.",1,분산 합의
+82,Analyze the impact of attention head pruning on transformer model performance. Design an experiment to determine the minimum number of heads needed without significant accuracy degradation.,1,모델 압축 실험 설계
+83,"정규화 기법(L1, L2, Dropout, Batch Normalization)의 수학적 원리를 비교하고, 각각이 과적합을 방지하는 메커니즘을 이론적으로 설명하시오.",1,정규화 이론
+84,"Design a multi-tenant SaaS application database schema that supports row-level isolation, efficient cross-tenant analytics, and schema evolution without downtime.",1,DB 설계
+85,"힙 정렬(Heap Sort)의 시간·공간 복잡도를 증명하고, 내부 정렬 알고리즘 중 최악의 경우에도 O(n log n)을 보장하는 이유를 heapify 연산을 통해 설명하시오.",1,정렬 알고리즘 분석
+86,Evaluate the trade-offs between synchronous and asynchronous communication patterns in microservices. Design a saga pattern for a distributed transaction spanning 5 services.,1,마이크로서비스 패턴
+87,"GAN(Generative Adversarial Network)의 학습 불안정성 원인을 이론적으로 분석하고, Wasserstein GAN이 이를 어떻게 해결하는지 Wasserstein distance 관점에서 증명하시오.",1,생성 모델 이론
+88,"Analyze memory safety issues in C++ (buffer overflow, use-after-free, dangling pointers) and compare how Rust's ownership model and borrow checker prevent these vulnerabilities.",1,언어 설계 비교
+89,"연속 시간 마르코프 체인(CTMC)을 이용해 M/M/k 대기 행렬 모델을 수식으로 정의하고, 서버 수 k에 따른 평균 대기 시간을 도출하시오.",1,확률론 + 대기이론
+90,"Design a globally distributed content delivery architecture for a video streaming platform with 500M users. Address latency, bandwidth cost, cache invalidation, and regional compliance requirements.",1,대규모 시스템 설계
+91,"주의 메커니즘(Attention)의 계산 복잡도가 O(n²)인 이유를 설명하고, Sparse Attention, Linear Attention, FlashAttention이 각각 어떻게 이를 개선하는지 비교 분석하시오.",1,어텐션 효율화
+92,Formally define and prove the correctness of Dijkstra's shortest path algorithm using loop invariants. Analyze why it fails for negative edge weights.,1,그래프 알고리즘 증명
+93,"인과 추론(Causal Inference)에서 confounding 변수의 영향을 제거하기 위한 do-calculus와 instrumental variable 방법을 비교하고, 각각의 가정과 한계를 논하시오.",1,인과 추론
+94,"Design a real-time fraud detection system that processes 50,000 transactions per second with <100ms latency and <0.1% false positive rate. Describe the ML pipeline, feature store, and model monitoring strategy.",1,ML 시스템 설계
+95,"양자 컴퓨팅에서 Shor 알고리즘이 RSA 암호화를 어떻게 깨뜨리는지 양자 푸리에 변환(QFT)을 중심으로 설명하고, post-quantum cryptography의 대안을 분석하시오.",1,양자 컴퓨팅
+96,"Analyze the CAP theorem's practical limitations and explain how modern databases (Spanner, CockroachDB) achieve 'effectively CA' through synchronized clocks and optimistic concurrency control.",1,분산 DB 설계
+97,"XGBoost의 목적 함수와 gradient boosting의 수학적 기반을 설명하고, 트리 분기 선택에 사용되는 gain 계산 공식을 유도하시오.",1,부스팅 이론
+98,"Implement a memory-efficient B+ tree for a database buffer pool manager. Analyze its page utilization, concurrency control with latch coupling, and compare with skip lists for range queries.",1,DB 자료구조
+99,"RLHF(인간 피드백 강화학습)의 reward model 학습과 PPO 최적화 과정을 단계별로 설명하고, reward hacking 문제와 Constitutional AI가 이를 어떻게 보완하는지 논하시오.",1,LLM 정렬
+100,"Prove that P ≠ NP would imply one-way functions exist, and explain the implications for modern cryptographic protocols including RSA, elliptic curve cryptography, and zero-knowledge proofs.",1,계산이론+암호학

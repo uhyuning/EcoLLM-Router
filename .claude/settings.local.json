@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs sed -i 's/본인/유현/g; s/협업자/하윤/g')"
+    ]
+  }
+}

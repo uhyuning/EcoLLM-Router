@@ -1,0 +1,6 @@
+[ app/api/routes/ — HTTP 엔드포인트 구현 ]
+
+담당: 하윤
+
+  chat.py     POST /chat/   — 프롬프트 수신 → 라우팅 → LLM 응답 반환
+  metrics.py  GET  /metrics/ — 누적 호출 수·비용·지연 시간 통계 조회

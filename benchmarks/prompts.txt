@@ -1,0 +1,10 @@
+What is the capital of France?
+Translate "good morning" into Spanish.
+Who wrote Hamlet?
+What does HTTP stand for?
+Summarize the plot of Romeo and Juliet in two sentences.
+Derive the closed-form solution for the time-optimal control of a double integrator system.
+Analyze the trade-offs between transformer-based and state-space models for long-context NLP tasks.
+Prove that the square root of 2 is irrational using proof by contradiction.
+Design a scalable microservices architecture for a real-time recommendation engine handling 1M RPS.
+Compare the computational complexity of QuickSort and MergeSort and explain when each is preferred.

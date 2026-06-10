@@ -1,0 +1,5 @@
+[ benchmarks/scripts/ — 측정 실행 스크립트 ]
+
+  run_baseline.py  모든 프롬프트를 Gemini Pro에만 보내 비용·지연을 기록한다 (비교 기준선)
+  run_routed.py    EcoLLM Router 서버를 통해 처리하고 실제 라우팅 결과를 기록한다
+  compare.py       두 결과 파일을 비교해 비용 절감률과 지연 개선률을 출력한다

@@ -1,0 +1,8 @@
+[ app/models/ — 요청·응답 스키마 ]
+
+담당: 하윤
+
+Pydantic BaseModel을 사용한 API 데이터 구조 정의.
+
+  request.py   POST /chat/ 요청 바디 스키마 (프롬프트, 모델 강제 지정 옵션)
+  response.py  POST /chat/ 응답 바디 스키마 (답변, 사용 모델, 비용, 지연 시간 등)

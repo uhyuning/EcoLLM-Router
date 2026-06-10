@@ -1,0 +1,9 @@
+[ classifier/artifacts/ — 학습된 모델 파일 ]
+
+담당: 유현
+
+train.py 실행 후 생성되는 모델 파일이 저장된다.
+  router_model.joblib  — scikit-learn GBM 분류기 (joblib 직렬화)
+
+이 파일이 없으면 app/services/classifier.py 는 휴리스틱 fallback으로 동작한다.
+.gitignore 에 등록되어 있으므로 Git에는 포함되지 않는다.

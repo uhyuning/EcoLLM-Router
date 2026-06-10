@@ -1,0 +1,6 @@
+[ tests/ — 단위 테스트 ]
+
+  test_classifier.py  분류기의 복잡도 점수 예측 결과를 검증한다
+  test_router.py      라우터의 모델 선택 로직을 검증한다
+
+실행: pytest tests/

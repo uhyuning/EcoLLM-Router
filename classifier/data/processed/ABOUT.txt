@@ -1,0 +1,6 @@
+[ classifier/data/processed/ — 전처리 완료 데이터 ]
+
+담당: 유현
+
+train.py 가 읽는 최종 데이터 파일을 저장한다.
+파일명 규칙: labeled.csv (컬럼: prompt, label)
