@@ -3,3 +3,5 @@
 # 사용법: from app.core.config import settings
 #
 # 담당: 하윤
+
+from app.config import settings  # noqa: F401
