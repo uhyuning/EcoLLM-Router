@@ -4,3 +4,15 @@
 #           output_tokens, latency_ms, estimated_cost_usd
 #
 # 담당: 하윤
+
+from pydantic import BaseModel
+
+
+class ChatResponse(BaseModel):
+    answer: str
+    model_used: str          # 실제로 사용된 모델 ("flash" | "pro")
+    complexity_score: float  # 분류기가 예측한 복잡도 점수 (0.0 ~ 1.0)
+    input_tokens: int
+    output_tokens: int
+    latency_ms: float
+    estimated_cost_usd: float  # API 호출 한 건의 추정 비용 (실제 청구액과 다를 수 있음)
