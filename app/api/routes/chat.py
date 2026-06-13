@@ -10,6 +10,7 @@ from app.models.request import ChatRequest
 from app.models.response import ChatResponse
 from app.services import classifier, router as model_router
 from app.services import llm_client
+from app.services.metrics_store import store as metrics_store
 
 # Gemini 공식 가격표 기준 (USD / 1M tokens), 2025년 기준
 # Flash: 저가 모델 — 빠른 응답이 필요한 단순 질문용
@@ -45,6 +46,8 @@ async def chat(req: ChatRequest) -> ChatResponse:
         result["input_tokens"]  * _COST[choice]["input"]  / 1_000_000
         + result["output_tokens"] * _COST[choice]["output"] / 1_000_000
     )
+
+    metrics_store.record(choice, cost, result["latency_ms"])
 
     return ChatResponse(
         answer=result["answer"],

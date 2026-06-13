@@ -9,6 +9,8 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from app.api.routes.chat import chat_router
+from app.api.routes.compare import compare_router
+from app.api.routes.metrics import metrics_router
 from app.core.exceptions import LLMError
 
 app = FastAPI(title="EcoLLM Router")
@@ -28,6 +30,8 @@ async def llm_error_handler(request: Request, exc: LLMError) -> JSONResponse:
 
 # 라우터 등록 — 새 엔드포인트 추가 시 이 아래에 include_router를 추가한다.
 app.include_router(chat_router)
+app.include_router(compare_router)
+app.include_router(metrics_router)
 
 
 @app.get("/health")
