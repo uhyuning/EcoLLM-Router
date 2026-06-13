@@ -69,16 +69,21 @@ if __name__ == "__main__":
     print("[ 2 ] 피처 추출 중...")
     X = build_feature_matrix(prompts)
 
-    print("[ 3 ] 학습/테스트 분할 (8:2)...")
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, labels, test_size=0.2, random_state=42
+    print("[ 3 ] Stratified K-Fold 교차 검증 (k=5)...")
+    from sklearn.model_selection import StratifiedKFold, cross_val_score
+    import numpy as np
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    cv_scores = cross_val_score(
+        LogisticRegression(max_iter=1000, random_state=42),
+        X, labels, cv=cv, scoring="f1_macro"
     )
+    print(f"      CV F1: {cv_scores.mean():.4f} ± {cv_scores.std():.4f}")
 
-    print("[ 4 ] 모델 학습 중...")
-    model = train(X_train, y_train)
+    print("[ 4 ] 전체 데이터로 최종 모델 학습 중...")
+    model = train(X, labels)
 
-    print("[ 5 ] 평가 결과:")
-    evaluate(model, X_test, y_test)
+    print("[ 5 ] 최종 모델 평가 결과 (전체 데이터):")
+    evaluate(model, X, labels)
 
     print("[ 6 ] 모델 저장 중...")
     save(model)
