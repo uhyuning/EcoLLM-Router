@@ -8,6 +8,25 @@
 from pydantic import BaseModel
 
 
+class ModelResult(BaseModel):
+    answer: str
+    latency_ms: float
+    estimated_cost_usd: float
+
+
+class QualityResult(BaseModel):
+    score_flash: float
+    score_pro: float
+    quality_gap: float  # score_pro - score_flash; 양수 = Pro가 더 좋음
+
+
+class CompareResponse(BaseModel):
+    prompt: str
+    flash: ModelResult
+    pro: ModelResult
+    quality: QualityResult
+
+
 class ChatResponse(BaseModel):
     answer: str
     model_used: str          # 실제로 사용된 모델 ("flash" | "pro")
