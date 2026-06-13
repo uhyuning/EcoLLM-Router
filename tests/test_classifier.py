@@ -1,43 +1,116 @@
-# [역할] 분류기(app/services/classifier.py)의 복잡도 점수 예측 결과를 검증한다.
-# 단순 질문은 낮은 점수, 고난도 질문은 높은 점수가 나와야 한다.
-# 실행: pytest tests/test_classifier.py
-
 import pytest
-from app.services import classifier
+
+from app.services.classifier import (
+    _avg_word_length,
+    _complex_kw_count,
+    _extract_features,
+    _rule_based_label,
+    _simple_kw_count,
+    _token_count,
+    score,
+)
+
+# ── 테스트 데이터 ──────────────────────────────────────────────────────────────
+
+_SIMPLE = [
+    "What is the capital of France?",
+    "When was Python created?",
+    "Who invented the telephone?",
+    "Where is the Eiffel Tower located?",
+    "What is machine learning?",
+]
+
+_COMPLEX = [
+    "Derive the closed-form solution for the time-optimal control of a double integrator.",
+    "Compare and evaluate the trade-offs of sorting algorithms in terms of complexity.",
+    "Analyze the quantum computing architecture for fault-tolerant error correction.",
+    "Design an algorithm to optimize distributed system throughput and evaluate its trade-offs.",
+    "Prove the correctness of a recursive algorithm using mathematical induction.",
+]
 
 
-def test_score_range():
-    """점수는 항상 0.0~1.0 사이여야 한다."""
-    score = classifier.score("테스트 질문입니다.")
-    assert 0.0 <= score <= 1.0
+# ── score() 공개 인터페이스 ────────────────────────────────────────────────────
+
+@pytest.mark.parametrize("prompt", _SIMPLE)
+def test_simple_prompt_scores_low(prompt):
+    assert score(prompt) < 0.5, f"단순 질문인데 점수가 높음: {prompt!r}"
 
 
-def test_simple_prompt_routes_to_flash():
-    """짧고 단순한 질문은 0.5 미만(Flash 구간)이어야 한다."""
-    score = classifier.score("안녕하세요")
-    assert score < 0.5, f"단순 질문 점수가 예상보다 높습니다: {score}"
+@pytest.mark.parametrize("prompt", _COMPLEX)
+def test_complex_prompt_scores_high(prompt):
+    assert score(prompt) >= 0.5, f"복잡한 질문인데 점수가 낮음: {prompt!r}"
 
 
-def test_complex_prompt_routes_to_pro():
-    """길고 복잡한 질문은 0.5 이상(Pro 구간)이어야 한다."""
-    prompt = (
-        "딥러닝 모델에서 배치 정규화(Batch Normalization)와 레이어 정규화(Layer Normalization)의 "
-        "수학적 원리를 비교 분석하고, 각각 어떤 아키텍처에 더 적합한지 근거와 함께 자세히 설명해주세요."
-    )
-    score = classifier.score(prompt)
-    assert score >= 0.5, f"복잡한 질문 점수가 예상보다 낮습니다: {score}"
+@pytest.mark.parametrize("prompt", _SIMPLE + _COMPLEX)
+def test_score_always_in_unit_range(prompt):
+    s = score(prompt)
+    assert 0.0 <= s <= 1.0, f"score가 [0, 1] 범위를 벗어남: {s}"
 
 
-def test_empty_string_does_not_crash():
-    """빈 문자열이 들어와도 예외 없이 점수를 반환해야 한다."""
-    try:
-        score = classifier.score("")
-        assert 0.0 <= score <= 1.0
-    except Exception as e:
-        pytest.fail(f"빈 문자열 처리 중 예외 발생: {e}")
+# ── 복잡도 키워드 감지 ─────────────────────────────────────────────────────────
+
+@pytest.mark.parametrize("prompt,expected_min", [
+    ("derive the solution",                    1),
+    ("compare and evaluate the algorithm",     3),
+    ("analyze the architecture and trade-off", 3),
+    ("what is the capital of France?",         0),
+    ("when was it created?",                   0),
+])
+def test_complex_keyword_count(prompt, expected_min):
+    assert _complex_kw_count(prompt) >= expected_min
 
 
-def test_score_is_float():
-    """반환값이 float 타입이어야 한다."""
-    score = classifier.score("파이썬이란 무엇인가요?")
-    assert isinstance(score, float)
+# ── 단순 키워드 감지 ───────────────────────────────────────────────────────────
+
+@pytest.mark.parametrize("prompt,expected_min", [
+    ("what is machine learning?",  1),
+    ("where is the Eiffel Tower?", 1),
+    ("who is the president?",      1),
+    ("derive and solve this",      0),
+    ("analyze the algorithm",      0),
+])
+def test_simple_keyword_count(prompt, expected_min):
+    assert _simple_kw_count(prompt) >= expected_min
+
+
+# ── 단순/복잡 신호가 동시에 있으면 복잡이 우선 ────────────────────────────────
+
+def test_complex_signal_overrides_simple_keyword():
+    # "what is"(단순)가 있어도 "algorithm"(복잡)이 있으면 Pro로 분류
+    assert _rule_based_label("what is the most efficient algorithm?") == 1
+
+
+# ── _rule_based_label ─────────────────────────────────────────────────────────
+
+@pytest.mark.parametrize("prompt,expected", [
+    ("What is the capital of France?",                               0),
+    ("Derive the closed-form solution for a double integrator.",     1),
+    ("Compare and evaluate sorting algorithms by complexity.",       1),
+    ("",                                                             0),
+])
+def test_rule_based_label(prompt, expected):
+    assert _rule_based_label(prompt) == expected
+
+
+# ── 피처 벡터 형식 ────────────────────────────────────────────────────────────
+
+def test_extract_features_returns_six_floats():
+    feats = _extract_features("hello world")
+    assert len(feats) == 6
+    assert all(isinstance(f, (int, float)) for f in feats)
+
+
+def test_extract_features_empty_prompt():
+    feats = _extract_features("")
+    assert feats[0] == 0   # token_count
+    assert feats[1] == 0   # char_count
+    assert feats[5] == 0.0 # avg_word_length
+
+
+def test_token_count():
+    assert _token_count("hello world foo") == 3
+    assert _token_count("") == 0
+
+
+def test_avg_word_length_empty():
+    assert _avg_word_length("") == 0.0
