@@ -8,7 +8,9 @@
       "Bash(xargs -I{} sh -c 'echo \"=== {} ===\" && cat \"{}\"')",
       "Bash(python -m classifier.src.evaluate)",
       "Bash(python classifier/data/processed/make_csv.py)",
-      "Bash(python -m classifier.src.compare_classifiers)"
+      "Bash(python -m classifier.src.compare_classifiers)",
+      "Bash(python3 -m pytest tests/ -v --tb=short --durations=0)",
+      "Bash(pip3 show *)"
     ]
   }
 }
